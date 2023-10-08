@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  nestjs-api:
+    environment:
+      POSTGRES_HOST: ''
+      POSTGRES_USER: ''
+      POSTGRES_PASSWORD: ''
+      POSTGRES_DATABASE: ''
+
+    build:
+      context: ./../sleek-ev-api
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+
+  react-app:
+    environment:
+      REACT_APP_API_ENDPOINT: ''
+    build:
+      context: ./../sleek-ev-frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3000'
